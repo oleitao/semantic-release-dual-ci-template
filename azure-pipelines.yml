@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - checkout: self
+    persistCredentials: true
+    clean: true
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Use Node.js 20'
+
+  - script: npm ci
+    displayName: 'Install dependencies'
+
+  # Executa semantic-release e expõe a próxima versão como variável de saída
+  - script: |
+      npx -p semantic-release \
+         -p @semantic-release/git \
+         -p @semantic-release/changelog \
+         -p semantic-release-ado \
+         semantic-release
+    displayName: 'Semantic Release'
+    env:
+      GH_TOKEN: $(GitHubToken)            # crie um secret variable em ADO
+    name: semanticReleaseStep

@@ -1,0 +1,15 @@
+{
+  "name": "semantic-release-dual-ci-template",
+  "version": "0.0.0-development",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "echo \"(adicione testes aqui)\" && exit 0"
+  },
+  "devDependencies": {
+    "semantic-release": "^24.0.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "semantic-release-ado": "^1.4.0"
+  }
+}
