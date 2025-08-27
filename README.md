@@ -1,30 +1,21 @@
 # semantic-release-dual-ci-template
 
-Template que publica releases automáticos com semantic-release tanto em **GitHub Actions** quanto em **Azure DevOps**.
+Template that automatically publishes releases using semantic-release both in **GitHub Actions** and **Azure DevOps**.
 
-## Pré-requisitos
+## Prerequisites
 
-- Commits no padrão **Conventional Commits**.
-- **GitHub**: não precisa criar token manual; a action usa `GITHUB_TOKEN`.
-- **Azure DevOps**: crie uma variável secreta `GitHubToken` com permissões de `repo` (se publicar Notas de Release no GitHub).
+- Commits must follow the **Conventional Commits** standard.
+- **GitHub**: no need to manually create a token; the action uses `GITHUB_TOKEN`.
+- **Azure DevOps**: create a secret variable `GitHubToken` with `repo` permissions (if publishing Release Notes to GitHub).
 
-## Primeira release
+## First Release
 
-1. Faça commits convencionais (ex.: `feat: ...`, `fix: ...`).
-2. Faça push para `main`.
-3. O workflow/pipeline corre e cria a release automaticamente.
+1. Make conventional commits (e.g., `feat: ...`, `fix: ...`).
+2. Push to `main`.
+3. The workflow/pipeline runs and automatically creates the release.
 
-## Links úteis
+## Useful Links
+
 - Docs: GitHub Actions + semantic-release  
-- Plugin ADO: semantic-release-ado
+- ADO Plugin: semantic-release-ado  
 
-
-
-semantic-release-dual-ci-template/
-├─ .github/
-│  └─ workflows/
-│     └─ release.yml
-├─ azure-pipelines.yml
-├─ package.json
-├─ .releaserc.json
-└─ README.md
